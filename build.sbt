@@ -29,11 +29,15 @@ lazy val admin = (project in file("modules/admin"))
   .enablePlugins(PlayJava)
   .dependsOn(common)
   
+lazy val analytics = (project in file("modules/analytics"))
+  .enablePlugins(PlayJava)
+  .dependsOn(common)
+  
 lazy val webide = (project in file("modules/webide"))
   .enablePlugins(PlayJava)
   .dependsOn(common)
 
 lazy val main = (project in file("."))
   .enablePlugins(PlayJava)
-  .dependsOn(common, admin, webide)
-  .aggregate(common, admin, webide)
+  .dependsOn(common, admin, analytics, webide)
+  .aggregate(common, admin, analytics, webide)
